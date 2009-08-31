@@ -1,0 +1,18 @@
+- body_id "page_search"
+#mid
+  #search_box
+    = form :action => resource(:shows, :search), :method => :get do
+      %h1 Search for Tv Shows
+      = text_field :name => "q", :value => params[:q]
+      = submit "Search", :class => "submitbutton"
+  
+  .big_search
+    - if @top_shows.present?
+      = partial "shows/slider", :shows => @top_shows, :title => "Popular Shows"
+
+    - if @local_results.present?
+      = partial "shows/slider", :shows => @local_results, :title => "Results"
+  
+    - if params[:q].present? && (@rage_results.present? || @local_results.empty?)
+      = partial "shows/rage_grid", :shows => @rage_results, :title => "Search Results from TV Rage (click to import)", :empty_message => "No TV Shows found matching '#{h(params[:q])}'"
+  

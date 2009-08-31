@@ -1,0 +1,32 @@
+- title ||= ""
+- shows ||= []
+- slider_id ||= nil
+- empty_message ||= ""
+
+- show_pages = shows.into_pages(3)
+
+.slider{:id => slider_id}
+  - if title.present?
+    .title_box
+      %span= title
+
+  - if shows.present?
+    - show_pages.each do |shows|
+      .slider_items
+        -# scrolling container for items
+        %div.slider_row
+          .thumbs
+            - shows.each do |show|
+              .slider_item
+                = link_to image_tag(AppConfig.import_thumb_url), add_to_db_url(show), :rel => "lightbox", :title => show["name"]
+                %h3= link_to show["name"], add_to_db_url(show), :class => "show_title"
+
+        .tooltip_container
+      
+        = clear
+  - elsif empty_message.present?
+    .slider_empty
+      %p= empty_message
+  
+= clear
+

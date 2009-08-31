@@ -1,0 +1,8 @@
+- body_id "page_home"
+
+
+-# All Shows
+#mid
+  = partial "shows/grid", :shows => @shows, :title => "Click a TV Show to Set up Alerts", :empty_message => "no shows yet"
+  = paging(@shows, :gray)
+  = clear

@@ -1,0 +1,16 @@
+- show ||= nil
+- if show
+  .slider_item.show_tooltip{:showid => show.id}
+    = link_to show_thumb_image(show), show_fanart_url(show), :rel => "lightbox", :title => show.title
+    %h3= link_to show.title, "#", :class => "show_title"
+    -# %p.meta
+    -#   Category: 
+    -#   = link_to "Featured", "#"
+    -#   |
+    -#   = link_to "Web", "#"
+    -# 
+    -# %p
+    -#   = lorem.truncate(100)
+    -# 
+    -# %p.scrollermore
+    -#   = link_to "read more", link_url

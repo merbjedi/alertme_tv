@@ -1,0 +1,38 @@
+- title ||= ""
+- shows ||= []
+- slider_id ||= nil
+- empty_message ||= ""
+
+- scroll_list = shows.size > 3
+
+.slider{:id => slider_id}
+  - if title.present?
+    .title_box
+      %span= title
+  
+  .slider_items
+    - if scroll_list
+      -# page navigator
+      .navi
+    
+    - if shows.present?
+      -# scrolling container for items
+      %div.slider_row{add_class("scrollable", :if => scroll_list)}
+        -# items
+        .thumbs
+          - shows.each do |show|
+            = partial "shows/slider_item", :show => show
+    - elsif empty_message.present?
+      .slider_empty
+        %p= empty_message
+    
+    .tooltip_container
+      
+    - if scroll_list
+      -# pager controls
+      %a.prevPage
+      %a.nextPage
+
+    = clear
+
+= clear

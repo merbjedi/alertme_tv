@@ -1,0 +1,21 @@
+javascripts:
+  - common:
+    - firebug/x
+    - jquery
+    - jquery-ui.js
+    - jquery.plugins/*.js
+    - libraries/*.js
+    - behaviors/*.js
+    - actions/*.js
+    - application.js
+    
+stylesheets:
+  - common:
+    - reset.css
+    - /960/grid.css
+    - jquery-ui.css
+    - components/*.css
+    - folioblogger.css
+    - template/*.css
+    - pages/*.css
+    

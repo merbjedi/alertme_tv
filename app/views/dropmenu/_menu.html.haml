@@ -1,0 +1,15 @@
+- visible ||= false
+#dropmenu_menu.dropmenu
+  .dropmenu_nav
+    %ul.dropmenu_body{:style => (visible ? "display:block" : "")}
+      %li= link_to "Featured", "#"
+      %li= link_to "Logo Design", "#"
+      %li= link_to "Print", "#"
+      %li
+        = link_to "Web", "#"
+        %ul.children
+          %li= link_to "secondlevel", "#"
+    
+    -# 
+      %img(src="/images/folioblogger/select-cat.gif" width="204" height="38" class="dropmenu_head" alt="select a category")
+

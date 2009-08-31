@@ -1,0 +1,120 @@
+site_title: "AlertMe.TV"
+site_tagline: "Email Alerts for Your Favorite TV Shows"
+site_logo: "http://alertme.tv.s3.amazonaws.com/logo.png"
+site_css: "http://alertme.tv.s3.amazonaws.com/style.css"
+
+site_url: "http://alertme.tv"
+
+# landing page
+landing_controller: "shows"
+landing_action: "index"
+
+# base url for all image asset urls
+tv_assets_url: "http://alertme.tv/tv"
+tv_assets_path: "/var/www/production/alertme_tv/shared/public/tv_assets"
+
+# default images
+default_thumb_url:  "/images/default/thumbnail.png"
+default_poster_url: "/images/default/poster.png"
+default_banner_url: "/images/default/banner.png"
+default_fanart_url: "/images/default/fanart.png"
+
+import_thumb_url: "/images/import.png"
+
+# api urls
+tvrage:
+  service_url: "http://services.tvrage.com"
+  cache: <%= 1.day %>
+  episode_cache: <%= 1.day %>
+  seasons_count: 3
+
+tvdb:
+  service_url: "http://www.thetvdb.com"
+  api_key: "PUT_YOUR_TVDB_KEY_HERE"
+  mirror_cache: <%= 1.hour %>
+  cache: <%= 1.month %>
+  assets_cache: <%= 1.month %>
+  default_lang: "en"
+  download_max_retries: 3
+
+reserved_usernames:
+  - "pages"
+  - "actions"
+  - "images"
+  - "javascripts"
+  - "sass"
+  - "stylesheets"
+  - "960"
+  - "robots.txt"
+  
+sms_carriers:
+  # US Carriers
+  alltel: 
+    name: Alltel
+    value: @message.alltel.com
+  ameritech:
+    name: Ameritech
+    value: @paging.acswireless.com
+  at&t: 
+    name: AT&T
+    value: @txt.att.net
+  bell-atlantic: 
+    name: Bell Atlantic
+    value: @message.bam.com
+  bellsouthmobility: 
+    name: Bellsouth Mobility
+    value: @blsdcs.net
+  blueskyfrog: 
+    name: BlueSkyFrog
+    value: @blueskyfrog.com
+  boost: 
+    name: Boost Mobile
+    value: @myboostmobile.com
+  cellularsouth: 
+    name: Cellular South
+    value: @csouth1.com
+  comcast: 
+    name: Comcast PCS
+    value: @comcastpcs.textmsg.com
+  cricket: 
+    name: Cricket
+    value: @sms.mycricket.com
+  kajeet: 
+    name: kajeet
+    value: @mobile.kajeet.net
+  metropcs: 
+    name: Metro PCS
+    value: @mymetropcs.com
+  powertel: 
+    name: Powertel
+    value: @ptel.net
+  pscwireless: 
+    name: PSC Wireless
+    value: @sms.pscel.com
+  qwest: 
+    name: Qwest
+    value: @qwestmp.com
+  southernlink: 
+    name: Southern Link
+    value: @page.southernlinc.com
+  sprint: 
+    name: Sprint PCS
+    value: @messaging.sprintpcs.com
+  suncom: 
+    name: Suncom
+    value: @tms.suncom.com
+  t-mobile: 
+    name: T-Mobile
+    value: @tmomail.net
+  tracfone: 
+    name: Tracfone
+    value: @mmst5.tracfone.com
+  telus-mobility: 
+    name: Telus Mobility
+    value: @msg.telus.com
+  virgin: 
+    name: Virgin Mobile
+    value: @vmobl.net
+  verizon: 
+    name: Verizon Wireless
+    value: @vtext.com

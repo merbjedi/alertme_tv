@@ -1,0 +1,163 @@
+.tooltip_container
+  display: none
+  z-index: 999999
+  
+  .tooltip
+    z-index: 999999
+    background: transparent url(/images/tooltip/black_mid.png) no-repeat scroll 0 0
+    font-size: 14px
+    height: 153px 
+    padding: 30px
+    width: 310px
+    font-size: 14px
+    display: block
+    z-index: -1
+    position: absolute
+    bottom: -163px
+    color: #fff
+
+    .tooltip_top
+      font-size: 18px
+      color: #fff
+      margin: 10px 0 0
+      padding-top: 15px
+      height: 5px
+      overflow: hidden
+            
+    .close
+      position: absolute
+      bottom: 20px
+      right: 27px
+      width: 100px
+      text-align: right
+      height: 20px
+      z-index: 999999
+      cursor: pointer
+      font-size: 11px
+      img
+        vertical-align: -5px
+      &:hover
+        text-decoration: none
+    
+    .tooltip_actions
+      width: 86px
+      float: left
+      margin-top: -8px
+      margin-left: -8px
+      line-height: 2em
+      overflow: hidden
+      a
+        font-size: 10px
+        text-transform: uppercase
+        display: block
+        white-space: nowrap
+        &:hover
+          text-decoration: none
+        &.toggle_poster
+          margin-top: -2px
+      img
+        vertical-align: middle
+        margin-left: 5px
+        
+    .tooltip_body
+      height: 110px
+      overflow: auto
+      font-size: 11px
+      margin-right: -4px
+      margin-top: -5px
+      width: 225px
+      float: right
+      h3
+        padding: 5px 0
+        font-weight: bold
+      p
+        padding-top: 0
+        padding-bottom: 10px
+      
+      .field
+        padding-top: 3px
+      
+      .checkboxes
+        float: left
+        width: 80px
+        .field
+          display: block
+          padding-top: 10px
+          input
+            margin-right: 3px
+      .actions
+        float: right
+        width: 90px
+        padding-top: 72px
+        padding-right: 30px
+      
+      .more_button
+        display: block
+        width: 52px
+        height: 20px
+        background: url(/images/folioblogger/more.png) no-repeat
+        float: left
+        cursor: pointer
+        text-indent: -9999em
+        position: absolute
+        bottom: 25px
+        left: 27px
+        margin: 0
+        &:hover
+          background-position: 0 -20px
+          
+      &.loading
+        margin-top: 30px
+        width: 327px
+        text-align: center
+
+    .tooltip_bottom
+      width: 1px
+      height: 1px
+      position: absolute
+      bottom: 0
+      left: 0
+    
+    &.show_info
+      .toggle_alert
+        display: block
+      .toggle_info
+        display: none
+      .tooltip_body.info
+        display: block
+      .tooltip_body.alert
+        display: none
+    &.show_alert
+      .close
+        display: none
+      .toggle_alert
+        display: none
+      .toggle_info
+        display: block
+      
+      .tooltip_body.info
+        display: none
+      .tooltip_body.alert
+        display: block
+        overflow: visible
+        height: 133px
+    
+        
+
+  &.left_tip .tooltip
+    background: transparent url(/images/tooltip/black_left.png) no-repeat scroll 0 0
+    opacity: 1
+    z-index: 9999999
+    left: 56px
+  
+  &.mid_tip .tooltip
+    background: transparent url(/images/tooltip/black_mid.png) no-repeat scroll 0 0
+    opacity: 1
+    z-index: 9999999
+    left: 293px
+  
+  &.right_tip .tooltip
+    background: transparent url(/images/tooltip/black_right.png) no-repeat scroll 0 0
+    opacity: 1
+    z-index: 9999999
+    right: 60px

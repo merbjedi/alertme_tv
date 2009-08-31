@@ -1,0 +1,77 @@
+.content_columns
+  #main
+    .posts
+      %h3.section_title.blog_title
+        Latest from the Blog
+      
+      -# item 1
+      = link_to image_tag("/images/sample/sampleimage1-80.png", :class => "size-medium alignleft"), "/images/sample/sampleimage1.jpg", :rel => "lightbox"
+      %h2= link_to "Multiple Images", "#"
+      %p
+        Here is an example of multiple images in a post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo augue, scelerisque semper, varius id, suscipit...
+      .meta
+        .readmore
+          = link_to "read more", "#"
+        .dates
+          03.27.09
+          |
+          = link_to "Comments 0", "#"
+        = clear
+
+      -# item 2
+      = link_to image_tag("/images/sample/themeoptions-80.png", :class => "size-medium alignleft"), "/images/sample/themeoptions.jpg", :rel => "lightbox"
+      %h2= link_to "Custom Options Page", "#"
+      %p
+        Folio Blogger has many features that are seen and unseen that make using your new theme easy to set-up and manage. Some of the features...
+      .meta
+        .readmore
+          = link_to "read more", "#"
+        .dates
+          03.23.09
+          |
+          = link_to "Comments 0", "#"
+        = clear
+        
+      -# item 3
+      = link_to image_tag("/images/sample/typography-80.png", :class => "size-medium alignleft"), "/images/sample/typography.jpg", :rel => "lightbox"
+      %h2= link_to "Typography", "#"
+      %p
+        Here are some examples of the typography Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel diam id mauris accumsan egestas. Sed sed lorem. Integer...
+      .meta
+        .readmore
+          = link_to "read more", "#"
+        .dates
+          03.22.09
+          |
+          = link_to "Comments 0", "#"
+        = clear
+      
+      -# more...
+      = link_to "More from the Blog", "#"
+    
+    .sidebar
+      .welcome
+        %h3.section_title.about_title
+          Welcome to AlertMe.TV
+        %p
+          = lorem.truncate(255)
+        .rss
+          = link_to "RSS Feed"
+      
+      .sidebar_boxes
+        %h3 Sponsors
+        = link_to image_tag("/images/sample/TF_125x125.jpg", :class => "banner"), "#"
+        = link_to image_tag("/images/sample/GR_125x125.jpg", :class => "banner"), "#"
+        = link_to image_tag("/images/sample/125x125_AJ.jpg", :class => "banner"), "#"
+        = link_to image_tag("/images/sample/125x125_FD.jpg", :class => "banner"), "#"
+        = link_to image_tag("/images/sample/125x125_FD.jpg", :class => "banner"), "#"
+        = link_to image_tag("/images/sample/125x125_FD.jpg", :class => "banner"), "#"
+        = clear
+        = br
+        
+        %form.searchbox{:action => "#", :method => "get"}
+          %p
+            = text_field :name => "s", :value => "Search Shows", :onfocus => "this.value='';"
+            = submit "Find it", :class => "submitbutton"
+          
+    = clear

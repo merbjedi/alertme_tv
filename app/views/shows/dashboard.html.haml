@@ -1,0 +1,7 @@
+#mid
+  = partial "shows/slider", :shows => @top_shows, :title => "Top Shows", :empty_message => "no shows available"
+  = partial "shows/slider", :shows => @alert_shows, :title => "Your Alerts", :empty_message => "You have no alerts configured yet"
+  - if @favorite_shows.present?
+    = partial "shows/slider", :shows => @favorite_shows, :title => "Your Favorites", :empty_message => "You have no favorites configured"  
+
+  

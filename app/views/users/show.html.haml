@@ -1,0 +1,5 @@
+#mid
+  = partial "shows/grid", :shows => @alert_shows, :title => "#{@user.username} is keeping tabs on:", :empty_message => "no shows yet.."
+  = partial "shows/grid", :shows => @favorite_shows, :title => "#{@user.username} likes:", :empty_message => "no shows yet"
+  
+  

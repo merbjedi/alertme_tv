@@ -1,0 +1,25 @@
+- u = session.user!
+- if logged_in?
+  - count_alerts = "(#{u.alerts_count})"
+  - count_favorites = "(#{u.favorites_count})"
+- elsif u && (u.alerts_count > 0 || u.favorites_count > 0)
+  - count_alerts = "(#{u.alerts_count})"
+  - count_favorites = "(#{u.favorites_count})"
+  
+#top_nav
+  .inner
+    .site_title
+      .splat
+      = link_to AppConfig.site_title, "/"
+    %ul.nav
+      %li.plain= link_to "All", resource(:shows)
+      %li.plain= link_to "Dashboard", resource(:shows, :dashboard)
+      %li.plain= link_to "Search", resource(:shows, :search)
+      %li#menu_account
+        = link_to "Account", "#"+resource(:users, :account), :class => "dropmenu_trigger", :rel => "#dropmenu_account"
+      %li#menu_alerts
+        = link_to "Alerts <em class='count_alerts'>#{count_alerts}</em>", "#"+resource(:users, :alerts), :class => "dropmenu_trigger", :rel => "#dropmenu_alerts"
+      %li#menu_favorites
+        = link_to "Favorites <em class='count_favorites'>#{count_favorites}</em>", "#"+resource(:users, :favorites), :class => "dropmenu_trigger", :rel => "#dropmenu_favorites"
+    = clear
+  

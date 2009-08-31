@@ -1,0 +1,24 @@
+#footer
+  .inner
+    .footer_left
+      = content_section "footer_left"
+    
+    .footer_right
+      = content_section "footer_right"
+      - if Merb.env?(:development)
+        - if current_user
+          %p.login_status Logged in as #{current_user.username}
+        - else
+          %p.login_status
+            Not logged in. Anon id: #{session.user!.id}
+      
+    = clear
+
+= content_section("welcome")
+
+-# fire off welcome popup
+- if session.user!.totally_new
+  :javascript
+    $(document).ready(function() {
+      $("#welcomeinline").click();
+    });

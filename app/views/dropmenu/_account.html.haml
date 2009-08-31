@@ -1,0 +1,31 @@
+- visible ||= false
+- refresh_all ||= false
+- update_msg ||= ""
+- update_error ||= nil
+- password_visible ||= false
+#dropmenu_account.dropmenu
+  .dropmenu_nav
+    .dropmenu_body{:style => (visible ? "display:block" : "")}
+      %h2 Account Settings
+      .about
+        You can share your favorite tv shows:
+        = br
+        = link_to session.user!.url, session.user!.url, :target => "_blank"
+      
+      = link_to "change password", "#", :class => "toggle_change_password"
+      .form_wrap.change_password_form{hidden_unless(password_visible)}
+        = form_with_fields_for @user || session.user!, :action => "/users/mini_account_update", :method => :put, :class => "ajax", :rel => "#dropmenu_account" do
+          = password_field :password, :label => "password:"
+          = password_field :password_confirmation, :label => "confirm:"
+          .actions
+            - if update_msg.present?
+              %span.error= update_msg
+            = mini_submit
+      
+      %ul
+        %li= link_to "Log Out", "/logout"
+      
+      - if refresh_all
+        .action_refresh_alerts
+        .action_refresh_favorites
+        .action_refresh_counts

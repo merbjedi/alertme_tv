@@ -1,0 +1,11 @@
+- visible ||= false
+#dropmenu_favorites.dropmenu
+  .dropmenu_nav
+    .dropmenu_body{:style => (visible ? "display:block" : "")}
+      %h2 Favorites (#{session.user!.favorites_count})
+      - session.user!.favorites.all(:limit => 10).each do |favorite|
+        %li
+          = link_to favorite.show.title, "#"
+      
+    
+      .view_all= link_to image_tag("mini_view_all.png"), resource(:shows, :dashboard)

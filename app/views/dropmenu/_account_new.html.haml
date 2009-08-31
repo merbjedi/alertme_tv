@@ -1,0 +1,40 @@
+- visible ||= false
+
+- register_msg ||= ""
+- register_error ||= nil
+
+- login_msg ||= ""
+- login_error ||= nil
+
+#dropmenu_account.dropmenu
+  .dropmenu_nav
+    .dropmenu_body{:style => (visible ? "display:block" : "")}
+      %h2{add_class("whacked", :if => register_error)} 
+        Set Up Your Account
+      .form_wrap
+        = form_with_fields_for @user || session.user!, :action => "/users/mini_register", :method => :put, :class => "ajax", :rel => "#dropmenu_account" do
+          = text_field :username, :label => "login"
+          = password_field :password, :label => "password"
+          = password_field :password_confirmation, :label => "confirm"
+          .actions
+            - if register_msg.present?
+              %span.error= register_msg
+            = mini_submit
+
+      %em.sep - or -
+
+      %h2{add_class("whacked", :if => login_error)}  
+        Log In
+      .form_wrap
+        = form :action => "/users/mini_login", :method => :put, :class => "ajax", :rel => "#dropmenu_account" do
+          .field= text_field :username, :label => "login"
+          .field= password_field :password, :label => "password"
+          .actions
+            - if login_msg.present?
+              %span.error= login_msg
+            = mini_submit
+      
+
+
+      
+

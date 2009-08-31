@@ -1,0 +1,19 @@
+- title ||= "Blue Option"
+- link_url ||= "#blue"
+- image_url ||= "/images/sample/blue.jpg"
+- thumb_url ||= "/images/sample/blue-180.png"
+
+.slider_item
+  = link_to image_tag(thumb_url, :alt => title), image_url, :rel => "lightbox", :title => "Blue Option"
+  %h3= link_to title, link_url
+  -# %p.meta
+  -#   Category: 
+  -#   = link_to "Featured", "#"
+  -#   |
+  -#   = link_to "Web", "#"
+  -# 
+  -# %p
+  -#   = lorem.truncate(100)
+  -# 
+  -# %p.scrollermore
+  -#   = link_to "read more", link_url

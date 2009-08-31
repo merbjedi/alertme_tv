@@ -1,0 +1,30 @@
+- title ||= ""
+- shows ||= []
+- slider_id ||= nil
+- empty_message ||= ""
+
+- show_pages = shows.into_pages(3)
+
+.slider{:id => slider_id}
+  - if title.present?
+    .title_box
+      %span= title
+  
+  - if shows.present?
+    - show_pages.each do |shows|
+      .slider_items
+        -# scrolling container for items
+        %div.slider_row
+          .thumbs
+            - shows.each do |show|
+              = partial "shows/slider_item", :show => show
+
+        .tooltip_container
+      
+        = clear
+  - elsif empty_message.present?
+    .slider_empty
+      %p= empty_message
+  
+= clear
+

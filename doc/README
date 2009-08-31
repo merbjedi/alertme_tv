@@ -1,0 +1,13 @@
+AlertMe.tv
+http://github.com/merbjedi/alertme_tv
+
+See it live: http://alertme.tv
+
+This theme depends on the FolioBlogger template which you'll need to buy a license for:
+http://themeforest.net/item/folio-blogger/35546?ref=jcnetdev
+
+You'll also need a TVDB api key: http://thetvdb.com
+
+Any questions, please create an issue on GitHub issue tracker, or update the wiki.
+
+Don't forget to run "thor merb:gem:redeploy" to compile all the gem dependencies. You must have Thor 0.9.9 installed for this to work (0.11 doesnt work).

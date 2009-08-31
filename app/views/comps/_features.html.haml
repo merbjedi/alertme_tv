@@ -1,0 +1,25 @@
+- title ||= ""
+
+.feature
+  - if title.present?
+    .title_box
+      %span= title
+  
+  -# page navigator
+  .navi
+
+  -# scrolling container for items
+  .scrollable
+    -# items
+    .thumbs
+      -# MAX 42 ITEMS
+      - 10.times do
+        = partial "comps/feature_item"
+
+  -# pager controls
+  %a.prevPage
+  %a.nextPage
+  
+  %br(clear="all")
+
+= clear

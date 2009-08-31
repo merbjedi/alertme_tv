@@ -1,0 +1,18 @@
+#mid
+  .giant
+    - if @show
+      %p.about Importing your TV Show
+      %p= image_tag "big_loader.gif"
+      %p= link_to "Continue", "#{AppConfig.site_url}/shows/search?q=#{@show.title}", :class => "continue_link"
+
+    - else
+      %p.about Not found
+      %p= image_tag "big_loader.gif"
+      %p= link_to "Continue", "#{AppConfig.site_url}/shows", :class => "continue_link"
+    
+    :javascript
+      $(document).ready(function() {
+        setTimeout(function(){
+          window.location = $(".continue_link").attr("href");
+        }, 7000);
+      });

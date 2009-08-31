@@ -1,0 +1,7 @@
+# tvdb:
+#   service_url: "http://localhost/tvdb_fake"
+
+# base url for all image asset urls
+tv_assets_url: "/tv_assets"
+tv_assets_path: "/Users/jc/Merb/alertme_tv/public/tv_assets"
+site_url: "http://mac.dev:4000"

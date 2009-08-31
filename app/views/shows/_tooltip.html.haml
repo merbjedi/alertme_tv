@@ -1,0 +1,48 @@
+- refresh_favorites ||= false
+- refresh_alerts ||= false
+.tooltip.show_info
+  = link_to image_tag("tooltip/blue_close.png")+" Close Popup", "#", :class => "close", :title => "Close Popup"
+  .tooltip_top 
+    -# %span= show.title
+    
+  .tooltip_body.info
+    %h3 About #{show.title}
+    %p= show.tvdb_description
+    -# .actions
+    -#   = link_to "more", "#", :class => "more_button"
+  
+  .tooltip_body.alert
+    %h3 Set Alert for New Episodes
+    - data = show.tvrage_data
+    - if data and data["ended"]
+      %p This show ended on #{data["ended"]}. Probably no use getting alerts now.
+    - else
+      = form_for @alert || Alert.from_pair(session.user!, show), :action => resource(show, :set_alert), :class => "ajax", :parents => ".tooltip" do
+        .field
+          Alert me
+          = select :time_delay, :collection => [[1.day, "1 day"], [1.week, "1 week"]]
+          = select :before_or_after, :collection => [[-1, "before"], [1, "after"]]
+        .checkboxes
+          .field= check_box :email_enabled, :label => "by Email"
+          .field= check_box :sms_enabled, :label => "by SMS"
+          .field= check_box :im_enabled, :label => "by IM"
+        .actions
+          = submit "Save Alert Settings"
+        = clear
+  
+  .tooltip_actions
+    - fav = session.user!.favorite_show?(show)
+    = link_to image_tag("enlarge.png")+" Enlarge", show_fanart_url(show), :class => "view_poster fancybox", :title => "View Art"
+    = link_to image_tag("show_photo.png")+" TV Poster", show_poster_url(show), :class => "view_poster fancybox", :title => "View Poster"
+    = link_to image_tag("favorite_#{fav ? 'on' : 'off'}.png")+" #{fav ? 'Delete' : 'Favorite'}", "#", :class => "toggle_favorite", :title => "Set Favorite"
+    = link_to image_tag("alert_off.png")+" Set Alert", "#", :class => "toggle_alert", :title => "Set Alert"
+    = link_to image_tag("info.png")+" Show Info", "#", :class => "toggle_info", :title => "Show Info"
+  = clear
+  .tooltip_bottom
+  
+  - if refresh_alerts
+    .action_refresh_alerts
+    .action_refresh_counts
+  - if refresh_favorites
+    .action_refresh_favorites
+    .action_refresh_counts

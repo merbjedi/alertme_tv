@@ -1,0 +1,29 @@
+- visible ||= false
+- update_msg ||= ""
+- update_error ||= nil
+
+#dropmenu_alerts.dropmenu
+  .dropmenu_nav
+    .dropmenu_body{:style => (visible ? "display:block" : "")}
+      %h2 Alert Contact Settings
+      .form_wrap
+        = form_with_fields_for @user || session.user!, :action => "/users/mini_alerts_update", :method => :put, :class => "ajax", :rel => "#dropmenu_alerts" do
+          = text_field :email, :label => "email address:"
+          = text_field :sms_number, :label => "sms number:"
+          = select :sms_carrier, :collection => sms_carrier_options, :label => "sms carrier:"
+          = text_field :gtalk_id, :label => "gtalk id:"
+          .actions
+            - if update_msg.present?
+              %span.error= update_msg
+            = mini_submit
+      %h2 Configured Alerts (#{session.user!.alerts_count})
+      %ul
+        - session.user!.alerts.all(:limit => 10).each do |alert|
+          %li
+            = link_to alert.show.title, "#"
+            .schedule_info
+              #{alert.schedule_description} (#{alert.types_description})
+      
+      .view_all= link_to image_tag("mini_view_all.png"), resource(:shows, :dashboard)
+        
+      

@@ -1,0 +1,23 @@
+-# DESIGN TEST
+#mid
+  = partial "shows/slider", :shows => Show.all.to_a.shuffle[0...12], :title => "Search Results for \"Top Chef\" (12)"
+  = partial "shows/slider", :shows => Show.all.to_a.shuffle[0...rand(15)], :title => "Top TV Shows"
+  = partial "shows/slider", :shows => Show.all.to_a.shuffle[0...rand(30)], :title => "Upcoming Shows"
+
+  -# Show a List with 1 elements
+  = partial "shows/slider", :shows => Show.all.to_a.shuffle[0...1], :title => "One Element"
+
+  -# Show a List with 2 elements
+  = partial "shows/slider", :shows => Show.all.to_a.shuffle[0...2], :title => "Two Elements"
+
+  -# Show a List with 2 elements
+  = partial "shows/slider", :shows => Show.all.to_a.shuffle[0...3], :title => "Three Elements"
+  
+  -# Show Search List
+  = partial "shows/slider", :shows => [], :title => "Search Results for \"BLAH\" (0)", :empty_message => "No tv shows found matching 'BLAH'"
+
+  -# = partial "comps/features", :title => "Viewing"
+  -# = partial "comps/features", :title => "Viewing2"
+
+-# #bottom_content
+-#   = partial "comps/bottom_content"
