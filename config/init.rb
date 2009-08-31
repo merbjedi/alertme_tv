@@ -11,7 +11,7 @@ Merb::Config.use do |c|
   c[:session_store] = 'cookie'  # can also be 'memory', 'memcache', 'container', 'datamapper
   
   # cookie session store configuration
-  c[:session_secret_key]  = '1fdf7cafc47840d69c35125463318b79d7bb34a9'  # required for cookie session store
+  c[:session_secret_key]  = '__PUT__KEY__HERE'  # required for cookie session store
   c[:session_id_key] = '_alertme_tv_session_id' # cookie session id key, defaults to "_session_id"
 end
 
